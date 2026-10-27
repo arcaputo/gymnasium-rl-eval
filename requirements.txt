@@ -1,0 +1,2 @@
+# This Gymnasium checkout, with the extras the benchmarks need (add mujoco for MuJoCo envs).
+-e .[classic-control,box2d]

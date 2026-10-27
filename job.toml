@@ -1,0 +1,7 @@
+image = "python:3.12-slim"
+requirements = "requirements.txt"
+timeout_s = 7200
+
+[resources]
+cpus = "8+"
+memory = "16+"

@@ -1,0 +1,40 @@
+[eval]
+type = "other"
+evaluator = "deterministic"
+entrypoint = "python rl_eval.py"
+
+[eval.schema.score]
+type = "float"
+primary = true
+display = "{:.3f}"
+description = "Mean normalized return over the benchmarks in benchmarks.toml (0 = random policy or worse, 1 = the benchmark's target); failed runs count as 0"
+
+[eval.schema.solved]
+type = "int"
+description = "Benchmarks whose mean return reached the target"
+
+[eval.schema.benchmarks]
+type = "int"
+description = "Benchmarks run"
+
+[eval.schema.results]
+type = "list[str]"
+description = "Per benchmark: mean return ± std over seeds, normalized score, solved or not"
+
+[eval.schema.failed_runs]
+type = "int"
+description = "Training runs that crashed, timed out or overran their step budget"
+
+[eval.schema.errors]
+type = "list[str]"
+optional = true
+description = "Why each failed run failed"
+
+[eval.schema.train_steps]
+type = "int"
+description = "Environment steps the agent took while training, over every run"
+
+[eval.schema.wall_s]
+type = "float"
+display = "{:.0f}"
+description = "Eval wall time, seconds"
