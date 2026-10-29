@@ -10,7 +10,7 @@ entry = "rl_agent:train"
 install = true
 
 [run]
-seeds = 3            # independent training runs per benchmark
+seeds = 4            # independent training runs per benchmark
 eval_episodes = 10   # evaluation episodes per trained policy (seeded, deterministic actions)
 workers = 0          # training runs in parallel; 0 = one per CPU
 run_timeout_s = 0    # per training run; 0 = no limit (the job's timeout_s still applies)
@@ -21,27 +21,5 @@ run_timeout_s = 0    # per training run; 0 = no limit (the job's timeout_s still
 # to gymnasium.make), `seeds`, `eval_episodes`.
 
 [[benchmark]]
-env = "CartPole-v1"
-timesteps = 100_000
-
-[[benchmark]]
-env = "Acrobot-v1"
-timesteps = 100_000
-
-[[benchmark]]
-env = "Pendulum-v1"
-timesteps = 100_000
-target = -200
-
-[[benchmark]]
-env = "LunarLander-v3"
-timesteps = 300_000
-
-# More, e.g.:
-# [[benchmark]]
-# env = "MountainCarContinuous-v0"
-# timesteps = 100_000
-#
-# [[benchmark]]                       # needs the [mujoco] extra in requirements.txt
-# env = "HalfCheetah-v5"
-# timesteps = 1_000_000
+env = "InvertedPendulum-v5"   # MuJoCo cart-pole; target defaults to its reward_threshold (950), max return 1000
+timesteps = 200_000
